@@ -23,27 +23,27 @@
         </div>
         <p class="mt-3">先攻後攻</p>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="first" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="firstSecond" id="inlineRadio1" value="option1">
             <label class="form-check-label" for="inlineRadio1">
                 先攻
             </label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="Second" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="firstSecond" id="inlineRadio2" value="option2">
             <label class="form-check-label" for="inlineRadio2">
                 後攻
             </label>
           </div>
         <p class="mt-3">勝敗</p>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="win" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="winlose" id="inlineRadio3" value="option3">
+            <label class="form-check-label" for="inlineRadio3">
                 勝ち
             </label>
         </div>
-        <div class="form-check-inline">
-            <input class="form-check-input" type="radio" name="lose" id="flexRadioDefault2" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="winlose" id="inlineRadio4" value="option4">
+            <label class="form-check-label" for="inlineRadio4">
                 負け
             </label>
         </div>
@@ -82,14 +82,12 @@
                     e.preventDefault();
                     const tournament = $('input[name="tournament"]').val();
                     const date = $('input[name="date"]').val();
-                    const first = $('input[name="first"]').val();
-                    const second = $('input[name="second"]').val();
-                    const win = $('input[name="win"]').val();
-                    const lose = $('input[name="lose"]').val();
+                    const firstsecond = $('input[name="firstsecond"]').val();
+                    const winlose = $('input[name="winlose"]').val();
                     const mydeck = $('input[name="mydeck"]').val();
                     const opponentdeck = $('input[name="opponentdeck"]').val();
                     const memo = $('input[name="memo"]').val();
-                    const msg = `${tournament}\n${date}\n${first}\n${second}\n${win}\n${lose}\n${mydeck}\n${opponentdeck}\n${memo}`;
+                    const msg = `${tournament}\n${date}\n${firstsecond}\n${winlose}\n${mydeck}\n${opponentdeck}\n${memo}`;
                     liff.sendMessages([{
                         'type': 'text',
                         'text': msg
