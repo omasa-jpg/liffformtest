@@ -71,32 +71,32 @@
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
     <script>
        
-        liff.init({ liffId: "2000226005-9WE7Ql0x" })
-            .then(() => {
-                $('form').submit(function (e) {
-                    e.preventDefault();
-                    const tournament = $('input[name="tournament"]').val();
-                    const date = $('input[name="date"]').val();
-                    const firstsecond = $('input[name="firstsecond"]').val();
-                    const winlose = $('input[name="winlose"]').val();
-                    const mydeck = $('input[name="mydeck"]').val();
-                    const opponentdeck = $('input[name="opponentdeck"]').val();
-                    const memo = $('input[name="memo"]').val();
-                    const msg = `${tournament}\n${date}\n${firstsecond}\n${winlose}\n${mydeck}\n${opponentdeck}\n${memo}`;
-                    console.log('msg',msg)
-                    liff.sendMessages([{
-                        'type': 'text',
-                        'text': msg
-                    }]).then(() => {
-                        liff.closeWindow();
-                    }).catch((err) => {
-                        console.log(err);
-                    });
-                });
-            })
-            .catch((err) => {
-                console.log('LIFF Initialization failed ', err);
+       liff.init({ liffId: "2000226005-9WE7Ql0x" })
+    .then(() => {
+        $('form').submit(function (e) {
+            e.preventDefault();
+            const tournament = $('input[name="tournament"]').val();
+            const date = $('input[name="date"]').prop("value");
+            const firstsecond = $('input[name="firstSecond"]:checked').val(); // 修正
+            const winlose = $('input[name="winlose"]:checked').val(); // 修正
+            const mydeck = $('input[name="mydeck"]').val();
+            const opponentdeck = $('input[name="opponentdeck"]').val();
+            const memo = $('textarea[name="memo"]').val(); // 修正
+            const msg = `${tournament}\n${date}\n${firstsecond}\n${winlose}\n${mydeck}\n${opponentdeck}\n${memo}`;
+            console.log('msg',msg)
+            liff.sendMessages([{
+                'type': 'text',
+                'text': msg
+            }]).then(() => {
+                liff.closeWindow();
+            }).catch((err) => {
+                console.log(err);
             });
+        });
+    })
+    .catch((err) => {
+        console.log('LIFF Initialization failed ', err);
+    });
     </script>
 </body>
 
